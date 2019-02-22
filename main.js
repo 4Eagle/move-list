@@ -12,24 +12,29 @@ removeButton.addEventListener('click', remove);
 
 
 function add(){
-    movies.push(movieNameInput.value);
-    movieNameInput.value = "";
+    if(movieNameInput.value != ""){
+        movies.push(movieNameInput.value);
+        movieNameInput.value = "";
+    }
+    else{
+        alert('You have to write movie name!');
+    }
     print();
 }
 
 function remove(){
     movies.splice(movieRemoveIndex.value-1, 1);
     movieRemoveIndex.value = '';
-    while(movieList.firstChild){
-        movieList.removeChild(movieList.firstChild);
-    }
     print();
 }
 
 function print(){
-    var element = document.createElement('li');
+    while(movieList.firstChild){
+        movieList.removeChild(movieList.firstChild);
+    }
     movies.forEach(function(movie){
-        element.textContent = movie;
+        var element = document.createElement('li');
+        element.innerText = movie;
         movieList.appendChild(element);
     });
     console.log(movies);
