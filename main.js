@@ -20,12 +20,14 @@ function add(){
         alert('You have to write movie name!');
     }
     print();
+    saveData();
 }
 
 function remove(){
     movies.splice(movieRemoveIndex.value-1, 1);
     movieRemoveIndex.value = '';
     print();
+    saveData();
 }
 
 function print(){
@@ -41,7 +43,8 @@ function print(){
 }
 
 function saveData(){
-
+    JSON.stringify(movies);
+    localStorage.setItem("Movie", movies);
 }
 
 function loadData(){
