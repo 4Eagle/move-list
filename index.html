@@ -6,9 +6,25 @@
     <title>My movie list</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
 </head>
 <body>
-    
+    <h1>Add your movie/series</h1>
+    <div class="wrapper">
+        <div class="movie-input-wrapper">
+            <input name="movie-input" type="text" class="movie-input" />
+            <button for="movie-input" class="add-button">Add</button>
+        </div>
+        <div class="movie-delete-wrapper">
+            <input name="movie-delete-input" type="number" class="movie-remove-index" />
+            <button for="movie-delete-input" class="remove-button">Remove</button>
+        </div>
+        <div class="movie-list">
+            <h2>Movies</h2>
+            <ul class="movies">
+
+            </ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
