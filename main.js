@@ -1,5 +1,5 @@
 var movies = [];
-//movies = loadData();
+movies = loadData();
 var movieList = document.querySelector('.movies');
 
 var movieNameInput = document.querySelector('.movie-input');
@@ -19,15 +19,15 @@ function add(){
     else{
         alert('You have to write movie name!');
     }
-    print();
     saveData();
+    print();
 }
 
 function remove(){
     movies.splice(movieRemoveIndex.value-1, 1);
     movieRemoveIndex.value = '';
-    print();
     saveData();
+    print();
 }
 
 function print(){
@@ -43,10 +43,10 @@ function print(){
 }
 
 function saveData(){
-    JSON.stringify(movies);
-    localStorage.setItem("Movie", movies);
+    localStorage.setItem('data', JSON.stringify(movies));
 }
 
 function loadData(){
-
+    return JSON.parse(localStorage.getItem('data')) || [];
 }
+print();
