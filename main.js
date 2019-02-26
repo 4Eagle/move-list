@@ -2,6 +2,14 @@ var movies = [];
 movies = loadData();
 var movieList = document.querySelector('.movies');
 
+var genres = movies.map(function(item){
+    return item.genre;
+});
+
+var filter = genres.filter(function(genre, index){
+    return genres.indexOf(genre) >= index;
+});
+
 var genreInput = document.querySelector('.genre-input');
 
 var movieNameInput = document.querySelector('.movie-input');
@@ -25,7 +33,6 @@ function add(){
         movies.push(movieObject);
         movieNameInput.value = "";
         genreInput.value = "";
-        console.log(movies);
     }
     else if(movieNameInput.value == ""){
         alert('You have to write movie name!');
@@ -45,6 +52,7 @@ function remove(){
 }
 
 function print(){
+    console.log(filter);
     while(movieList.firstChild){
         movieList.removeChild(movieList.firstChild);
     }
